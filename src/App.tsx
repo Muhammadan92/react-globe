@@ -6,10 +6,8 @@ import ErrorBoundary from 'jcicl/ErrorBoundary';
 import { NavItemProps as JCINavItemProps } from 'jcicl/Nav';
 import { useNavigate } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
-import FloodIcon from '@mui/icons-material/Flood';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import ContactsPageActionsPanel from 'pages/ContactsPage/ContactsPageActionsPanel';
-import IssuesPageActionsPanel from 'pages/IssuesPage/IssuesPageActionPanel';
 // Custom redirect
 import ApiExample from 'src/api/ApiExample';
 const issuesApi = new ApiExample();
@@ -34,29 +32,6 @@ function App() {
       icon: <ContactsIcon />,
       url: '/contacts',
       actionsPanelContent: <ContactsPageActionsPanel />,
-    },
-    {
-      label: 'Issues',
-      icon: <FloodIcon />,
-      url: '/issues',
-      actionsPanelContent: <IssuesPageActionsPanel />,
-      // This will override our default onClick behavior
-      onClick: async () => {
-        setActiveRoute('Issues');
-        setActionsPanelElement(<IssuesPageActionsPanel />);
-        const previousIssueId = localStorage.getItem('JCReactTemplateIssueId');
-        if (previousIssueId) {
-          navigate(`/issues/${previousIssueId}`);
-        } else {
-          const data = await issuesApi.getIssues();
-          if (data.length > 0 && !data.error) {
-            localStorage.setItem('JCReactTemplateIssueId', data[0].id);
-            navigate(`/issues/${data[0].id}`);
-          } else {
-            navigate('/issues');
-          }
-        }
-      },
     },
   ];
 

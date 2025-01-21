@@ -16,7 +16,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@mui/icons-material": "^6.3.0",
-    "jcicl": "^0.0.109",
+    "jcicl": "^0.0.112",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "^6.27.0"
