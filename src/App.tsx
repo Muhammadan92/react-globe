@@ -5,15 +5,21 @@ import ErrorBoundary from 'jcicl/ErrorBoundary';
 // Nav
 import { NavItemProps as JCINavItemProps } from 'jcicl/Nav';
 import { useNavigate } from 'react-router-dom';
-import HomeIcon from '@mui/icons-material/Home';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import ContactsPageActionsPanel from 'pages/ContactsPage/ContactsPageActionsPanel';
-// Custom redirect
-import ApiExample from 'src/api/ApiExample';
-const issuesApi = new ApiExample();
+import Globe from '@mui/icons-material/Public';
+import theme from 'jcicl/theme';
+import logo from 'assets/logo.webp';
 
 interface NavItemProps extends JCINavItemProps {
   url: string;
+}
+
+const customTheme = {
+  backgroundPrimary: theme.colors.sky,
+  backgroundSecondary: theme.colors.lovemist,
+  backgroundTertiary: theme.colors.cornflower,
+  borderPrimary: theme.colors.darkBlue,
+  shadowPrimary: theme.colors.indigo,
+  iconPrimary: theme.colors.cobalt,
 }
 
 function App() {
@@ -24,14 +30,8 @@ function App() {
   const navItemsBase: NavItemProps[] = [
     {
       label: 'Home',
-      icon: <HomeIcon />,
+      icon: <Globe />,
       url: '/',
-    },
-    {
-      label: 'Contacts',
-      icon: <ContactsIcon />,
-      url: '/contacts',
-      actionsPanelContent: <ContactsPageActionsPanel />,
     },
   ];
 
@@ -58,7 +58,7 @@ function App() {
   }, []);
 
   return (
-    <AppContainer navProps={{ navItems, activeRoute }} actionsPanelContent={actionsPanelElement}>
+    <AppContainer navProps={{ navItems, activeRoute }} actionsPanelContent={actionsPanelElement} themeColors={customTheme} logoProps={{ logoSrc: logo, logoWidth: 50 }}>
       <ErrorBoundary title="We seem to have enountered an error, our apologies.">
         <Outlet />
       </ErrorBoundary>
