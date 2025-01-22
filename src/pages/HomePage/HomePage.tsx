@@ -1,16 +1,17 @@
 import  { useState, useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
+import polygons from './polygons.json';
 
 
 const HomePage = () => {
   const globeEl = useRef();
-    const [countries, setCountries] = useState({ features: []});
+    const [countries, setCountries] = useState(polygons);
     const [altitude, setAltitude] = useState(0.1);
     const [transitionDuration, setTransitionDuration] = useState(1000);
 
     useEffect(() => {
       // load data
-      fetch('../datasets/ne_110m_admin_0_countries.geojson').then(res => res.json())
+      fetch(polygons).then(res => res.json())
         .then(countries=> {
           setCountries(countries);
 
@@ -36,8 +37,8 @@ const HomePage = () => {
 
     polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')}
     polygonAltitude={altitude}
-    polygonCapColor={() => 'rgba(200, 0, 0, 0.6)'}
-    polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}
+    polygonCapColor={() => 'rgba(0, 114, 255, 0.6)'}
+    polygonSideColor={() => 'rgba(0, 92, 0, 0.15)'}
     polygonLabel={({ properties: d }) => <div>
       <div><b>{d.ADMIN} ({d.ISO_A2})</b></div>
       <div>Population: <i>{Math.round(+d.POP_EST / 1e4) / 1e2}M</i></div>
