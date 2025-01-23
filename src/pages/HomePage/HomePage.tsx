@@ -46,8 +46,8 @@ const HomePage = () => {
       //countries
       polygonsData={countries}
       polygonAltitude={altitude}
-      polygonCapColor={() => 'rgba(0, 114, 255, 0.6)'}
-      polygonSideColor={() => 'rgba(0, 92, 0, 0.15)'}
+      polygonCapColor={() => 'rgba(0, 114, 255, 0.72)'}
+      polygonSideColor={() => 'rgba(0, 92, 0, 0.36)'}
       polygonLabel={({ properties: d }) => (
         <div>
           <div>
