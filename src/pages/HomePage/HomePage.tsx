@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
-import countries from './smcCountries.json';
-import cities from './smcCities.json';
+import countries from 'src/data/smcCountries.json';
+import cities from 'src/data/smcCities.json';
 import earthNight from 'src/assets/earth-night.jpg';
 import starrySky from 'src/assets/night-sky.png';
 
