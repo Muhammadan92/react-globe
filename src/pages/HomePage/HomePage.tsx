@@ -1,17 +1,20 @@
 import  { useState, useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
-import polygons from './polygons.json';
+import countries from './countries.json';
+import cities from './cities.json';
+
 
 
 const HomePage = () => {
   const globeEl = useRef();
-    const [countries, setCountries] = useState(polygons);
+    const [countries, setCountries] = useState(countries);
+    const [cities, setCities] = useState(cities);
     const [altitude, setAltitude] = useState(0.1);
     const [transitionDuration, setTransitionDuration] = useState(1000);
 
     useEffect(() => {
       // load data
-      fetch(polygons).then(res => res.json())
+      fetch(countries).then(res => res.json())
         .then(countries=> {
           setCountries(countries);
 
@@ -35,15 +38,15 @@ const HomePage = () => {
     ref={globeEl}
     globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
 
-    polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')}
+    countriesData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')}
     polygonAltitude={altitude}
     polygonCapColor={() => 'rgba(0, 114, 255, 0.6)'}
-    polygonSideColor={() => 'rgba(0, 92, 0, 0.15)'}
+    countriesideColor={() => 'rgba(0, 92, 0, 0.15)'}
     polygonLabel={({ properties: d }) => <div>
       <div><b>{d.ADMIN} ({d.ISO_A2})</b></div>
       <div>Population: <i>{Math.round(+d.POP_EST / 1e4) / 1e2}M</i></div>
     </div>}
-    polygonsTransitionDuration={transitionDuration}
+    countriesTransitionDuration={transitionDuration}
   />
   )
 };
