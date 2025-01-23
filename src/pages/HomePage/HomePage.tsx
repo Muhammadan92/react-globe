@@ -30,17 +30,16 @@ const HomePage = () => {
     // Auto-rotate
     globeEl.current.controls().autoRotate = true;
     globeEl.current.controls().autoRotateSpeed = -0.72;
-    globeEl.current.pointOfView({ lat: 34.0549, lng: -118.2426, altitude: 0.9 }, 3600);
+    globeEl.current.pointOfView({ lat: 34.0549, lng: -135.2426, altitude: 0.9 }, 3600);
   }, []);
 
   const stopHover = (globeItem) => {
     if (globeItem) {
       globeEl.current.controls().autoRotate = false;
-    }
-    else {
+    } else {
       globeEl.current.controls().autoRotate = true;
     }
-  }
+  };
 
   return (
     <Globe
@@ -68,22 +67,19 @@ const HomePage = () => {
       )}
       polygonsTransitionDuration={transitionDuration}
       onPolygonHover={stopHover}
-
       //cities
-      labelsData={cities.features.filter(city => filteredCities.includes(city.properties.name))}
-      labelLat={d => d.properties.latitude}
-      labelLng={d => d.properties.longitude}
-      labelText={d => d.properties.name}
+      labelsData={cities.features.filter((city) => filteredCities.includes(city.properties.name))}
+      labelLat={(d) => d.properties.latitude}
+      labelLng={(d) => d.properties.longitude}
+      labelText={(d) => d.properties.name}
       labelAltitude={0.014}
-      labelSize={d => Math.sqrt(d.properties.pop_max) * 4e-4}
-      labelDotRadius={d => Math.sqrt(d.properties.pop_max) * 4e-4}
+      labelSize={(d) => Math.sqrt(d.properties.pop_max) * 4e-4}
+      labelDotRadius={(d) => Math.sqrt(d.properties.pop_max) * 4e-4}
       labelColor={() => 'rgba(250, 255, 250, 0.92)'}
       labelLabel={({ properties: d }) => (
         <div>
           <div>
-            <b>
-              {d.name}
-            </b>
+            <b>{d.name}</b>
           </div>
           <div>
             Population: <i>{Math.round(+d.pop_max / 1e4) / 1e2}M</i>
