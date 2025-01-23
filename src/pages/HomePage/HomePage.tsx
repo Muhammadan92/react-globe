@@ -29,9 +29,8 @@ const HomePage = () => {
   useEffect(() => {
     // Auto-rotate
     globeEl.current.controls().autoRotate = true;
-    globeEl.current.controls().autoRotateSpeed = -1.8;
-
-    globeEl.current.pointOfView({ altitude: 4 }, 5000);
+    globeEl.current.controls().autoRotateSpeed = -0.72;
+    globeEl.current.pointOfView({ lat: 34.0549, lng: -118.2426, altitude: 0.9 }, 3600);
   }, []);
 
   const stopHover = (globeItem) => {
