@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
-import countries from './countries.json';
-import cities from './cities.json';
+import countries from './smcCountries.json';
+import cities from './smcCities.json';
 import earthNight from 'src/assets/earth-night.jpg';
 import starrySky from 'src/assets/night-sky.png';
 
@@ -9,9 +9,6 @@ const HomePage = () => {
   const globeEl = useRef(undefined);
   const [altitude, setAltitude] = useState(0.01);
   const [transitionDuration, setTransitionDuration] = useState(1000);
-
-  const filteredCountries = ['United States of America', 'India', 'Pakistan', 'Canada', 'Nigeria'];
-  const filteredCities = ['Los Angeles', 'Vancouver', 'Chicago', 'San Francisco'];
 
   // useEffect(() => {
   //   // load data
@@ -47,9 +44,7 @@ const HomePage = () => {
       globeImageUrl={earthNight}
       backgroundImageUrl={starrySky}
       //countries
-      polygonsData={countries.features.filter(
-        (d) => d.properties.ISO_A2 !== 'AQ' && filteredCountries.includes(d.properties.ADMIN),
-      )}
+      polygonsData={countries}
       polygonAltitude={altitude}
       polygonCapColor={() => 'rgba(0, 114, 255, 0.6)'}
       polygonSideColor={() => 'rgba(0, 92, 0, 0.15)'}
@@ -68,7 +63,7 @@ const HomePage = () => {
       polygonsTransitionDuration={transitionDuration}
       onPolygonHover={stopHover}
       //cities
-      labelsData={cities.features.filter((city) => filteredCities.includes(city.properties.name))}
+      labelsData={cities}
       labelLat={(d) => d.properties.latitude}
       labelLng={(d) => d.properties.longitude}
       labelText={(d) => d.properties.name}
