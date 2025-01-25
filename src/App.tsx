@@ -58,11 +58,11 @@ function App() {
   }, []);
 
   return (
-    <AppContainer navProps={{ navItems, activeRoute }} actionsPanelContent={actionsPanelElement} themeColors={customTheme} logoProps={{ logoSrc: logo, logoWidth: 50 }}>
-      <ErrorBoundary title="We seem to have enountered an error, our apologies.">
+    // <AppContainer navProps={{ navItems, activeRoute }} actionsPanelContent={actionsPanelElement} themeColors={customTheme} logoProps={{ logoSrc: logo, logoWidth: 50 }}>
+    //   <ErrorBoundary title="We seem to have enountered an error, our apologies.">
         <Outlet />
-      </ErrorBoundary>
-    </AppContainer>
+    //   </ErrorBoundary>
+    // </AppContainer>
   );
 }
 

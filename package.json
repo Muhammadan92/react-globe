@@ -16,11 +16,12 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@mui/icons-material": "^6.3.0",
-    "jcicl": "^0.0.114",
+    "jcicl": "^0.0.118",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-globe.gl": "^2.31.0",
-    "react-router-dom": "^6.27.0"
+    "react-router-dom": "^6.27.0",
+    "react-slick": "^0.30.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
