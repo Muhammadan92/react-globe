@@ -16,9 +16,9 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@mui/icons-material": "^6.3.0",
-    "jcicl": "^0.0.118",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "jci18": "^0.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-globe.gl": "^2.31.0",
     "react-router-dom": "^6.27.0",
     "react-slick": "^0.30.3"
@@ -26,8 +26,8 @@
   "devDependencies": {
     "@eslint/js": "^9.11.1",
     "@types/node": "^22.9.0",
-    "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.2",
     "eslint": "^9.11.1",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",

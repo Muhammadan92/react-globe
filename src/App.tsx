@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import AppContainer from 'jcicl/AppContainer';
-import ErrorBoundary from 'jcicl/ErrorBoundary';
+import AppContainer from 'jci18/AppContainer';
+import ErrorBoundary from 'jci18/ErrorBoundary';
 // Nav
-import { NavItemProps as JCINavItemProps } from 'jcicl/Nav';
+import { NavItemProps as JCINavItemProps } from 'jci18/Nav';
 import { useNavigate } from 'react-router-dom';
 import Globe from '@mui/icons-material/Public';
-import theme from 'jcicl/theme';
+import theme from 'jci18/theme';
 import logo from 'assets/logo.webp';
 
 interface NavItemProps extends JCINavItemProps {
@@ -20,7 +20,7 @@ const customTheme = {
   borderPrimary: theme.colors.darkBlue,
   shadowPrimary: theme.colors.indigo,
   iconPrimary: theme.colors.cobalt,
-}
+};
 
 function App() {
   const [actionsPanelElement, setActionsPanelElement] = useState<React.ReactNode | undefined>(undefined);
@@ -60,7 +60,7 @@ function App() {
   return (
     // <AppContainer navProps={{ navItems, activeRoute }} actionsPanelContent={actionsPanelElement} themeColors={customTheme} logoProps={{ logoSrc: logo, logoWidth: 50 }}>
     //   <ErrorBoundary title="We seem to have enountered an error, our apologies.">
-        <Outlet />
+    <Outlet />
     //   </ErrorBoundary>
     // </AppContainer>
   );

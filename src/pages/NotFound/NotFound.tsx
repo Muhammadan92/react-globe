@@ -1,5 +1,5 @@
-import Flex from 'jcicl/Flex';
-import ZoomEntrance from 'jcicl/animation/ZoomEntrance';
+import Flex from 'jci18/Flex';
+import ZoomEntrance from 'jci18/animation/ZoomEntrance';
 
 const NotFoundPage: React.FC = () => {
   return (

@@ -59,7 +59,7 @@ For styling and layout, we are relying on the [Johnson County Component Library]
 
 #### Updating the component library
 
-`npm install jcicl@latest`
+`npm install jci18@latest`
 
 ### Building
 

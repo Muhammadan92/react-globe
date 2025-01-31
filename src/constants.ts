@@ -1,4 +1,4 @@
-import theme from 'jcicl/theme';
+import theme from 'jci18/theme';
 
 export const iconColors = [theme.colors.indigo, theme.colors.green, theme.colors.gold, theme.colors.darkRed];
 export const backgroundColors = [
